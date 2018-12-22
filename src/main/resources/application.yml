@@ -1,8 +1,14 @@
+spring:
+  application:
+    name: eureka-server-ha
 server:
   port: 8761
 eureka:
   client:
-    register-with-eureka: false
+#    register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://127.0.0.1:8762/eureka/
+  instance:
+#    如果开启registerWithEureka，需要使用ip注册，否则按照系统名称注册导致无法找到服务
+    prefer-ip-address: true
